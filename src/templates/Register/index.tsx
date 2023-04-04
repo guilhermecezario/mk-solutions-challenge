@@ -1,8 +1,9 @@
-import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function TemplateRegister() {
   return (
-    <>
+    <div>
       <Link to="/register/user" style={{ marginRight: 10 }}>
         user
       </Link>
@@ -18,9 +19,10 @@ export default function TemplateRegister() {
       <Link to="/register/confirmation" style={{ marginRight: 10 }}>
         confirmation
       </Link>
+
       <div className="App">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }

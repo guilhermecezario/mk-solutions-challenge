@@ -1,42 +1,44 @@
-import React from "react";
+import React from 'react';
 
 import {
   createBrowserRouter,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import TemplateRegister from './templates/Register'
+import TemplateRegister from './templates/Register';
 
-import User from "./pages/Register/User";
-import Validation from "./pages/Register/Validation";
-import Company from "./pages/Register/Company";
-import Documents from "./pages/Register/Documents";
-import Confirmation from "./pages/Register/Confirmation";
+import User from './pages/Register/User';
+import Validation from './pages/Register/Validation';
+import Company from './pages/Register/Company';
+import Documents from './pages/Register/Documents';
+import Confirmation from './pages/Register/Confirmation';
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path: "/register",
+    path: '/register',
     element: <TemplateRegister />,
     children: [
       {
-        path: "user",
+        path: 'user',
         element: <User />,
       },
       {
-        path: "validation",
+        path: 'validation',
         element: <Validation />,
       },
       {
-        path: "company",
+        path: 'company',
         element: <Company />,
       },
       {
-        path: "documents",
+        path: 'documents',
         element: <Documents />,
       },
       {
-        path: "confirmation",
+        path: 'confirmation',
         element: <Confirmation />,
       },
     ],
   },
 ]);
+
+export default router;
