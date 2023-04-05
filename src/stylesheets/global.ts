@@ -27,6 +27,8 @@ export const Text = styled.p`
   color: #205366;
 `;
 
+export const Form = styled.form``;
+
 export const LineForm = styled.div`
   display: flex;
   align-items: center;
@@ -69,4 +71,15 @@ export const ButtonLink = styled.button`
   text-decoration: underline;
 
   cursor: pointer;
+`;
+
+export const Label = styled.label`
+  display: block;
+
+  font-size: .9rem;
+  font-weight: bold;
+
+  margin-bottom: 15px;
+
+  color: #205366;
 `;

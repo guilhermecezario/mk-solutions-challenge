@@ -11,7 +11,10 @@ interface ProgressBarProps {
 
 export const Container = styled.div`
   min-height: 100vh;
-  width: 100vw;
+
+  padding: 30px;
+
+  width: 100%;
   margin: 0px auto;
 
   display: flex;
@@ -33,7 +36,7 @@ export const NavBar = styled.div`
   border-radius: 25px;
 
   height: 48px;
-  width: 700px;
+  width: 850px;
 
   margin-bottom: 20px;
 `;
@@ -69,7 +72,6 @@ export const NavBarItem = styled.div<NavBarItemProps>`
   border-radius: 25px;
 
   height: 48px;
-  width: 700px;
 
   margin-bottom: 20px;
 
@@ -84,5 +86,5 @@ export const NavBarItem = styled.div<NavBarItemProps>`
 `;
 
 export const Content = styled.div`
-  width: 700px;
+  width: 850px;
 `;

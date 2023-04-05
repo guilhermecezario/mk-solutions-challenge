@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { Container, Input } from './styles';
+import { Container, Input } from './styles'
 
 interface CheckboxProps {
-  label: string;
+    label: string
 }
 
 export default function Checkbox({ label }: CheckboxProps) {
@@ -12,5 +12,5 @@ export default function Checkbox({ label }: CheckboxProps) {
       <Input type="checkbox" />
       {label}
     </Container>
-  );
+  )
 }

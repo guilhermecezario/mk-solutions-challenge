@@ -1,20 +1,33 @@
-import React, { ReactNode } from 'react';
+import React, { ChangeEvent, ReactNode } from 'react';
 
-import * as Icons from 'react-icons/bs';
+import {BsFillCheckCircleFill, BsCircle} from 'react-icons/bs';
 
 import { Container, Input, IconSelect } from './styles';
 
 interface RadioProps {
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  checked?: boolean;
   children: ReactNode;
 }
 
-export default function Radio({ children }: RadioProps) {
+export default function Radio({ value, onChange, checked, children }: RadioProps) {
   return (
-    <Container htmlFor="html">
-      <Input type="radio" id="html" name="fav_language" value="HTML" />
+    <Container>
+      <Input
+        type="radio"
+        value={value}
+        onChange={onChange}
+        checked={checked}
+      />
 
       <IconSelect>
-        <Icons.BsFillCheckCircleFill color="#63D391" size="18px" />
+        {checked ? (
+          <BsFillCheckCircleFill color="#63D391" size="18px" />
+        
+        ) : (
+          <BsCircle size="18px" />
+        )}
       </IconSelect>
 
       {children}

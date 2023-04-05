@@ -19,7 +19,11 @@ export const Container = styled.label`
   border-radius: 7px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  flex: 1;
+
+  margin-left: 15px;
+`;
 
 export const Text = styled(TextGlobal)`
   margin-bottom: 0px;
@@ -56,4 +60,13 @@ export const Button = styled.button`
 
   background-color: #205366;
   color: #fff;
+`;
+
+export const TextSend = styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+
+  margin-bottom: 10px;
+
+  color: #63D391;
 `;

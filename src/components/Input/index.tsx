@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { Container, Label, InputText } from './styles';
 
 interface InputProps {
   label: string;
+  value: string;
   type?: string;
   width?: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  isRequired?: boolean
 }
 
-export default function Input({ label, type, width }: InputProps) {
+export default function Input({
+  label, value, type, width, onChange, isRequired
+}: InputProps) {
   return (
     <Container>
       <Label>{label}</Label>
-      <InputText width={width} type={type} />
+
+      <InputText
+        width={width}
+        type={type}
+        value={value}
+        onChange={onChange}
+        required={isRequired}
+      />
     </Container>
   );
 }
@@ -20,4 +32,5 @@ export default function Input({ label, type, width }: InputProps) {
 Input.defaultProps = {
   type: 'text',
   width: '330px',
+  isRequired: false,
 };
