@@ -5,9 +5,8 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.h1`
-  font-size: 1rem;
-
-  margin-bottom: 5px;
+  font-size: 1.3rem;
+  line-height: 25px;
 
   color: #205366;
 `;

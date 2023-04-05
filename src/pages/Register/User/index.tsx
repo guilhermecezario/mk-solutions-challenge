@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { Container, LineForm } from './styles';
-
 import {
-  SubTitle, Text, Button, Division,
+  Card, LineForm, SubTitle, Text, Button, Division,
 } from '../../../stylesheets/global';
 
 import Title from '../../../components/Title';
@@ -12,7 +10,7 @@ import Checkbox from '../../../components/Checkbox';
 
 export default function User() {
   return (
-    <Container>
+    <Card>
       <Title>Cadastre sua conta</Title>
 
       <SubTitle>Vamos começar  pela conta de usuario</SubTitle>
@@ -34,6 +32,6 @@ export default function User() {
       <Division />
 
       <Button type="button">Cadastrar</Button>
-    </Container>
+    </Card>
   );
 }
