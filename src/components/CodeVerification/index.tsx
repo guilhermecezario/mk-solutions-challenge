@@ -10,7 +10,7 @@ interface Props {
   onChange: (value: string) => void;
 }
 
-export default function CodeValidation({ value, label, onChange }: Props) {
+export default function CodeVerification({ value, label, onChange }: Props) {
   return (
     <Container>
       <Label>{label}</Label>
