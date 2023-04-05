@@ -27,4 +27,8 @@ export const InputSelect = styled.select<InputTextProps>`
 
   width: ${(props) => props.width || '330px'};
   height: 40px;
+
+  option {
+    color: #205366;
+  }
 `;

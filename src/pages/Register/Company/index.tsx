@@ -1,12 +1,15 @@
 import React from 'react';
 
+import { BsRouter, BsThreeDots } from 'react-icons/bs';
+
 import {
-  Card, LineForm, Text, Button, Division,
+  Card, LineForm, Text, Button, Division, ButtonLink,
 } from '../../../stylesheets/global';
 
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Select from '../../../components/Select';
+import Radio from '../../../components/Radio';
 
 export default function Company() {
   return (
@@ -18,9 +21,20 @@ export default function Company() {
         criar sua conta empresarial customizada para o seu negocio
       </Text>
 
+      <LineForm>
+        <Radio>
+          <BsRouter size="36px" color="#ADC8D3" />
+          Provedores de internet
+        </Radio>
+        <Radio>
+          <BsThreeDots size="36px" color="#ADC8D3" />
+          Outros segmentos
+        </Radio>
+      </LineForm>
+
       <Division />
 
-      <Select label="Tipo de empresa" width="220px" />
+      <Select label="Tipo de empresa" width="370px" placeholder="Selecione o tipo da empresa" />
 
       <Input label="CNPJ" width="220px" type="select" />
 
@@ -39,7 +53,11 @@ export default function Company() {
         <Input label="Bairro" width="240px" />
       </LineForm>
 
-      <Button type="button">Confirmar</Button>
+      <LineForm>
+        <Button type="button">Confirmar</Button>
+
+        <ButtonLink>Voltar</ButtonLink>
+      </LineForm>
     </Card>
   );
 }

@@ -10,7 +10,7 @@ import Title from '../../../components/Title';
 import CodeValidation from '../../../components/CodeVerification';
 
 export default function Validation() {
-  const [otp, setOtp] = useState('654321');
+  const [otp, setOtp] = useState('');
 
   return (
     <Card>

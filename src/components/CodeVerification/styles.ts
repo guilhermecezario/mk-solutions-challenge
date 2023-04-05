@@ -27,5 +27,10 @@ export const InputNumber = styled.input`
   width: 20px !important;
 
   color: #205366;
-  font-size: 15px;
+  font-size: 1.3rem;
+
+  ::placeholder {
+    color: #DAE4E8;
+    font-size: 1.3rem;
+  }
 `;

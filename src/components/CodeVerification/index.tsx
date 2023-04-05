@@ -18,7 +18,7 @@ export default function CodeValidation({ value, label, onChange }: Props) {
         value={value}
         onChange={onChange}
         numInputs={6}
-        renderInput={(props) => <InputNumber {...props} />}
+        renderInput={(props) => <InputNumber {...props} placeholder="0" />}
       />
     </Container>
   );
