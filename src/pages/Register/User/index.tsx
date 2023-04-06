@@ -1,5 +1,7 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+
+import { useTranslation } from 'react-i18next'
 
 import {
   Card, Form, LineForm, SubTitle, Text, Button, Division,
@@ -15,6 +17,13 @@ import { registerUser } from '../../../store/reducers/user'
 import api from '../../../services/api';
 
 export default function User() {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage('en-US')
+  }, [])
+
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -51,18 +60,17 @@ export default function User() {
 
   return (
     <Card>
-      <Title>Cadastre sua conta</Title>
+      <Title>{t('Register your account')}</Title>
 
-      <SubTitle>Vamos começar  pela conta de usuario</SubTitle>
+      <SubTitle>{t("Let's start with the user account")}</SubTitle>
 
       <Text>
-        Preencha seu email que utiliza profissionalmente,
-        nome completo de pessoa fisica e seu numero de celular
+      {t('Fill in your email')}
       </Text>
 
       <Form onSubmit={handleSubmit}>
         <Input
-          label="Email"
+          label={t('Email')}
           type="email"
           value={email}
           onChange={handleChangeEmail}
@@ -71,14 +79,14 @@ export default function User() {
 
         <LineForm>
           <Input
-            label="Nome completo"
+            label={t('Full name')}
             width="240px"
             value={name}
             onChange={handleChangeName}
             isRequired
           />
           <Input
-            label="Celular"
+            label={t('Phone')}
             width="160px"
             value={phone}
             onChange={handleChangePhone}
@@ -86,11 +94,11 @@ export default function User() {
           />
         </LineForm>
 
-        <Checkbox label="Eu li e concordo com o Contrato de Uso" />
+        <Checkbox label={t('I have read and')} />
 
         <Division />
 
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit">{t('Register')}</Button>
       </Form>
 
     </Card>

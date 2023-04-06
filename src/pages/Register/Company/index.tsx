@@ -1,6 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from 'react-i18next'
+
 import { BsRouter, BsThreeDots } from 'react-icons/bs';
 
 import {
@@ -14,6 +16,8 @@ import Radio from '../../../components/Radio';
 import api from '../../../services/api';
 
 export default function Company() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [segment, setSegment] = useState('providers');
@@ -102,14 +106,13 @@ export default function Company() {
 
   return (
     <Card>
-      <Title>Cadastre sua empresa</Title>
+      <Title>{t("Register your company")}</Title>
 
       <Text>
-        Agora cadastre as informações da sua empresa para
-        criar sua conta empresarial customizada para o seu negocio
+      {t("Now register as")}
       </Text>
 
-      <Label>Escolha o segmento de sua empresa</Label>
+      <Label>{t("Choose the segment")}</Label>
 
       <Form onSubmit={handleSubmit}>
         <LineForm>
@@ -119,7 +122,7 @@ export default function Company() {
             checked={segment === "providers"}
           >
             <BsRouter size="36px" color="#ADC8D3" />
-            Provedores de internet
+            {t("Internet providers")}
           </Radio>
           <Radio
             value="others"
@@ -127,16 +130,16 @@ export default function Company() {
             checked={segment === "others"}
           >
             <BsThreeDots size="36px" color="#ADC8D3" />
-            Outros segmentos
+            {t("Other segments")}
           </Radio>
         </LineForm>
 
         <Division />
 
         <Select
-          label="Tipo de empresa"
+          label={t("Company type")}
           width="370px"
-          placeholder="Selecione o tipo da empresa"
+          placeholder={t("Select company type")}
           value={typeCompany}
           onChange={handleChangeTypeCompany}
           isRequired
@@ -153,7 +156,7 @@ export default function Company() {
 
         <LineForm>
           <Input
-            label="Razão social"
+            label={t("Social reason")}
             value={companyName}
             onChange={handleChangeCompanyName}
             isRequired
@@ -161,7 +164,7 @@ export default function Company() {
           />
 
           <Input
-            label="Telefone"
+            label={t("Phone")}
             value={phone}
             onChange={handleChangePhone}
             isRequired
@@ -178,7 +181,7 @@ export default function Company() {
         />
 
         <Input
-          label="Endereço"
+          label={t("Address")}
           value={address}
           onChange={handleChangeAddress}
           isRequired
@@ -187,21 +190,21 @@ export default function Company() {
 
         <LineForm>
           <Input
-            label="Número"
+            label={t("Number")}
             value={number}
             onChange={handleChangeNumber}
             isRequired
             width="160px"
           />
           <Input
-            label="Complemento"
+            label={t("Complement")}
             value={complement}
             onChange={handleChangeComplement}
             isRequired
             width="160px"
           />
           <Input
-            label="Bairro"
+            label={t("Neighborhood")}
             value={neighborhood}
             onChange={handleChangeNeighborhood}
             isRequired
@@ -210,9 +213,9 @@ export default function Company() {
         </LineForm>
 
         <LineForm>
-          <Button type="submit">Confirmar</Button>
+          <Button type="submit">{t("Confirm")}</Button>
 
-          <ButtonLink onClick={navigationToBack}>Voltar</ButtonLink>
+          <ButtonLink onClick={navigationToBack}>{t("Back")}</ButtonLink>
         </LineForm>
       </Form>
     </Card>

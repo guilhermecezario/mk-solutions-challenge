@@ -4,7 +4,7 @@ import { Container, Label, InputSelect } from './styles';
 
 interface SelectProps {
   label: string;
-  placeholder: string | undefined;
+  placeholder: string | undefined | null;
   width?: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;

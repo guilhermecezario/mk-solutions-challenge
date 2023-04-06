@@ -1,6 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from 'react-i18next';
+
 import { Label, ButtonLink } from './styles';
 
 import {
@@ -13,6 +15,8 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 
 export default function Documents() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [socialContractFile, setSocialContractFile] = useState<File>();
@@ -28,7 +32,7 @@ export default function Documents() {
 
       setSocialContractFile(selectedFiles?.[0]);
     } catch (error) {
-      toast.error("Erro ao enviar RG ou CNH");
+      toast.error(t("Error sending social contract"));
     }
   }
 
@@ -41,7 +45,7 @@ export default function Documents() {
 
       setDocumentFile(selectedFiles?.[0]);
     } catch (error) {
-      toast.error("Erro ao enviar o contrato social");
+      toast.error(t("Error sending RG or CNH"));
     }
   }
 
@@ -54,13 +58,15 @@ export default function Documents() {
 
       setSelfieDocumentFile(selectedFiles?.[0]);
     } catch (error) {
-      toast.error("Erro ao enviar o contrato social");
+      toast.error(t("Error sending selfie with document"));
     }
   }
 
   const handleSubmit = (event: FormEvent): void => {
+    event.preventDefault();
+
     if (!socialContractFile || !documentFile || !selfieDocumentFile) {
-      toast("Adicione todos os documentos para continuar");
+      toast(t("Add all documents to continue"));
 
       return;
     }
@@ -82,43 +88,41 @@ export default function Documents() {
 
   return (
     <Card>
-      <Title>Envie os documentos</Title>
+      <Title>{t("Send the documents")}</Title>
 
       <Text>
-        Para concluir o processo de cadastro,
-        voce deve enviar os documentos da empresa e
-        indentificação sua como responsavel pela empresa.
+      {t("To complete the process")}
       </Text>
 
-      <Label>Envie os documentos abaixo</Label>
+      <Label>{t("Send the documents below")}</Label>
 
       <Form onSubmit={handleSubmit}>
         <InputFile
-          label="Contrato social"
-          subtitle="Envie o contrato social completo da empresa"
+          label={t("Social contract")}
+          subtitle={t("Send the complete articles of incorporation of the company")}
           value={socialContractFile}
           onChange={handleChangeSocialContractFile}
         />
 
         <InputFile
-          label="RG ou CNH"
-          subtitle="Envie uma copia do documento de pessoa fisica"
+          label={t("RG or CNH")}
+          subtitle={t("Send a copy of the natural person document")}
           value={documentFile}
           onChange={handleChangeDocumentFile}
         />
 
         <InputFile
-          label="Selfie com o documento"
-          subtitle="Tire uma selfie segurando o documento de identificação"
+          label={t("Selfie with document")}
+          subtitle={t("Take a selfie holding ID")}
           value={selfieDocumentFile}
           onChange={handleChangeSelfieDocumentFile}
         />
 
-        <ButtonLink>Não sou o responsavel ou socio da empresa</ButtonLink>
+        <ButtonLink>{t("I am not the person in charge or partner of the company")}</ButtonLink>
 
         <Division />
 
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit">{t("Register")}</Button>
       </Form>
 
     </Card>

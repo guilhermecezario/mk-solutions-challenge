@@ -1,11 +1,15 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next'
+
 import {
   Container, ProcessBar, NavBarItem,
 } from './styles';
 
 export default function NavBar() {
+  const { t } = useTranslation();
+
   const pathnames = ['user', 'validation', 'company', 'documents', 'confirmation'];
 
   const location = useLocation();
@@ -34,23 +38,23 @@ export default function NavBar() {
 
       <NavBarItem selected={handleSelected('user')} finished={handleFinished('user')}>
         <span>1</span>
-        Usuário
+        {t("User")}
       </NavBarItem>
       <NavBarItem selected={handleSelected('validation')} finished={handleFinished('validation')}>
         <span>2</span>
-        Validação
+        {t("Validation")}
       </NavBarItem>
       <NavBarItem selected={handleSelected('company')} finished={handleFinished('company')}>
         <span>3</span>
-        Empresa
+        {t("Company")}
       </NavBarItem>
       <NavBarItem selected={handleSelected('documents')} finished={handleFinished('documents')}>
         <span>4</span>
-        Documentos
+        {t("Documents")}
       </NavBarItem>
       <NavBarItem selected={handleSelected('confirmation')} finished={handleFinished('confirmation')}>
         <span>5</span>
-        Confirmação
+        {t("Confirmation")}
       </NavBarItem>
     </Container>
   );

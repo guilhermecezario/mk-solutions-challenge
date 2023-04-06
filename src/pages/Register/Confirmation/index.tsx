@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import { AiFillInfoCircle } from 'react-icons/ai';
 
 import {
@@ -13,23 +15,25 @@ import Title from '../../../components/Title';
 import ImageCompleted from '../../../assets/completed.svg';
 
 export default function Confirmation() {
+  const { t } = useTranslation();
+
   return (
     <Card>
-      <Title>Sucesso!</Title>
+      <Title>{t("Success!")}</Title>
 
       <Content>
         <Image src={ImageCompleted} />
-        <SubTitle>Vamos começar pela conta de usuario!</SubTitle>
+        <SubTitle>{t("Let's start with the user account!")}</SubTitle>
 
-        <TextBold>Aguarde que nossa equipe está validando os dados informados.</TextBold>
+        <TextBold>{t("Wait, our team is validating the entered data.")}</TextBold>
 
         <Text>
-          Enviaremos a confirmação o mais breve possivel em seu email.
+        {t("We will send the confirmation as soon as possible to your email.")}
         </Text>
 
         <TextInformation>
           <AiFillInfoCircle color="#F0B86C" size="22px" />
-          Foi enviado um email com os próximos passos
+          {t("An email with next steps has been sent")}
         </TextInformation>
       </Content>
     </Card>

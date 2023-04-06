@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from 'react-i18next'
+
 import { useSelector } from 'react-redux'
 import type { RootState } from '../../../store'
 
@@ -18,6 +20,8 @@ import api from '../../../services/api';
 import { toast } from 'react-toastify';
 
 export default function Validation() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const phone = useSelector((state: RootState) => state.user.register.phone)
@@ -34,13 +38,13 @@ export default function Validation() {
   
       navigate("/register/company");
     } catch (error) {
-      toast.error("Codigo invalido :(")
+      toast.error(t("Invalid code :("))
     }
 
   }
 
   const handleResendCode = (): void => {
-    toast("Codigo reenviado para o email informado :)")
+    toast(t("Code resent to email provided :)"))
   }
 
   const navigationToBack = () => {
@@ -49,12 +53,12 @@ export default function Validation() {
 
   return (
     <Card>
-      <Title>Validação da conta</Title>
+      <Title>{t("Account validation")}</Title>
 
-      <SubTitle>Validação enviada para seu celular</SubTitle>
+      <SubTitle>{t("Validation sent to your mobile")}</SubTitle>
 
       <Text>
-        Enviamos uma mensagem SMS com o codigo de confirmação para o celular abaixo:
+      {t("We sent a message")}
       </Text>
 
       <Phone>{phone}</Phone>
@@ -62,18 +66,18 @@ export default function Validation() {
       <Form onSubmit={handleSubmit}>
         <LineForm>
           <CodeValidation
-            label="Informe o código de verificação"
+            label={t("Enter the code")}
             value={otp}
             onChange={setOtp}
           />
 
-          <ButtonLink type="button" onClick={handleResendCode}>Não recebeu o código? Clique para reenviar</ButtonLink>
+          <ButtonLink type="button" onClick={handleResendCode}>{t("Didn't receive")}</ButtonLink>
         </LineForm>
 
         <LineForm>
-          <Button type="submit">Confirmar</Button>
+          <Button type="submit">{t("Confirm")}</Button>
 
-          <ButtonLink type="button" onClick={navigationToBack}>Voltar</ButtonLink>
+          <ButtonLink type="button" onClick={navigationToBack}>{t("Back")}</ButtonLink>
         </LineForm>
       </Form>
     </Card>
