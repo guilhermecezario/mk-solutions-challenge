@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
-import { Container, Label, InputText } from './styles';
+import { Container, InputText } from './styles';
 
 interface InputProps {
   label: string;
@@ -16,7 +16,7 @@ export default function Input({
 }: InputProps) {
   return (
     <Container>
-      <Label>{label}</Label>
+      <span>{label}</span>
 
       <InputText
         width={width}

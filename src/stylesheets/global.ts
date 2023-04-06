@@ -33,7 +33,7 @@ export const LineForm = styled.div`
   display: flex;
   align-items: center;
 
-  div + div {
+  label + label {
     margin-left: 20px;
   }
 `;

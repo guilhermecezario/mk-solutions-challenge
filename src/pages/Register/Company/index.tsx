@@ -11,6 +11,7 @@ import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import Select from '../../../components/Select';
 import Radio from '../../../components/Radio';
+import api from '../../../services/api';
 
 export default function Company() {
   const navigate = useNavigate();
@@ -70,8 +71,27 @@ export default function Company() {
     setNeighborhood(event.target.value);
   }
 
-  const handleSubmit = (event: FormEvent): void => {
+  const handleSubmit = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
+
+    try {
+      await api.post("/validation", {
+        segment,
+        typeCompany,
+        cnpj,
+        companyName,
+        phone,
+        cep,
+        address,
+        number,
+        complement,
+        neighborhood,
+      });
+  
+      navigate("/register/documents");
+    } catch (error) {
+      
+    }
 
     navigate("/register/documents");
   }

@@ -1,90 +1,34 @@
 import styled from 'styled-components';
 
-interface NavBarItemProps {
-  selected: boolean;
-  finished: boolean;
-}
-
-interface ProgressBarProps {
-  width: string;
-}
-
 export const Container = styled.div`
-  min-height: 100vh;
+  overflow: auto;
 
-  padding: 30px;
+  height: 100vh;
+  width: 100vw;
 
-  width: 100%;
   margin: 0px auto;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   background-color: #F0F4F5;
 `;
 
-export const NavBar = styled.div`
-  position: relative;
-
-  display: flex;
-  justify-content: space-between;
-
-  background-color: #fff;
-
-  border-radius: 25px;
-
-  height: 48px;
-  width: 850px;
-
-  margin-bottom: 20px;
+export const Header = styled.div`
+  width: 100%;
 `;
 
-export const ProcessBar = styled.div<ProgressBarProps>`
-  position: absolute;
-  z-index: 0;
+export const Image = styled.img`
+  max-width: 210px;
 
-  display: flex;
-  justify-content: space-between;
+  margin: 30px;
 
-  background-color: #63D391;
-
-  border-radius: 25px;
-
-  height: 48px;
-  width: ${(props) => props.width};
-
-  margin-bottom: 20px;
-`;
-
-export const NavBarItem = styled.div<NavBarItemProps>`
-  flex: 1;
-  z-index: 999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: ${(props) => (props.selected ? '#4B8DB5' : 'transparent')};
-  color: ${(props) => (props.finished ? '#ffffff' : '#205366')};
-
-  border-radius: 25px;
-
-  height: 48px;
-
-  margin-bottom: 20px;
-
-  font-size: 1rem;
-  font-weight: bold;
-
-  span {
-    margin-right: 8px;
-
-    color: ${(props) => (props.finished ? '#ffffff' : '#63D391')};
-  }
+  margin-bottom: 50px;
 `;
 
 export const Content = styled.div`
   width: 850px;
+
+  padding: 30px;
 `;

@@ -12,6 +12,8 @@ import Checkbox from '../../../components/Checkbox';
 import { useDispatch } from 'react-redux'
 import { registerUser } from '../../../store/reducers/user'
 
+import api from '../../../services/api';
+
 export default function User() {
   const dispatch = useDispatch();
 
@@ -33,13 +35,16 @@ export default function User() {
     setPhone(event.target.value);
   }
 
-  const handleSubmit = (event: FormEvent): void => {
+  const handleSubmit = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
 
-    dispatch(registerUser({
-      phone,
-      token: "1234"
-    }))
+    const response = await api.post("/users", {
+      email,
+      name,
+      phone
+    });
+
+    dispatch(registerUser(response.data))
 
     navigate("/register/validation");
   }

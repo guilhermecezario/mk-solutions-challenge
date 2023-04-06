@@ -13,6 +13,10 @@ import {
 import Title from '../../../components/Title';
 import CodeValidation from '../../../components/CodeVerification';
 
+import api from '../../../services/api';
+
+import { toast } from 'react-toastify';
+
 export default function Validation() {
   const navigate = useNavigate();
 
@@ -20,10 +24,27 @@ export default function Validation() {
 
   const [otp, setOtp] = useState('');
 
-  const handleSubmit = (event: FormEvent): void => {
+  const handleSubmit = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
 
-    navigate("/register/company");
+    try {
+      await api.post("/validation", {
+        code: otp,
+      });
+  
+      navigate("/register/company");
+    } catch (error) {
+      toast.error("Codigo invalido :(")
+    }
+
+  }
+
+  const handleResendCode = (): void => {
+    toast("Codigo reenviado para o email informado :)")
+  }
+
+  const navigationToBack = () => {
+    navigate("/register/user")
   }
 
   return (
@@ -46,13 +67,13 @@ export default function Validation() {
             onChange={setOtp}
           />
 
-          <ButtonLink>Não recebeu o código? Clique para reenviar</ButtonLink>
+          <ButtonLink type="button" onClick={handleResendCode}>Não recebeu o código? Clique para reenviar</ButtonLink>
         </LineForm>
 
         <LineForm>
           <Button type="submit">Confirmar</Button>
 
-          <ButtonLink>Voltar</ButtonLink>
+          <ButtonLink type="button" onClick={navigationToBack}>Voltar</ButtonLink>
         </LineForm>
       </Form>
     </Card>

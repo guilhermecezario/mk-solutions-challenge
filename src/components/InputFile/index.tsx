@@ -27,7 +27,7 @@ export default function InputFile({ label, subtitle, value, onChange }: InputPro
 
       {value ? (
         <TextSend>Enviado</TextSend>
-      ) : <Button>Enviar</Button>}
+      ) : <Button type='button'>Enviar</Button>}
     </Container>
   );
 }

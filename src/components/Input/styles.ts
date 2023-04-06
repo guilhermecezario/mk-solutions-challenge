@@ -4,19 +4,21 @@ interface InputTextProps {
   width: string | undefined;
 }
 
-export const Container = styled.div`
-  margin-bottom: 25px;
-`;
-
-export const Label = styled.label`
+export const Container = styled.label`
   display: block;
 
   font-size: .9rem;
   font-weight: bold;
 
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 
   color: #205366;
+
+  span {
+    display: block;
+    
+    margin-bottom: 10px;
+  }
 `;
 
 export const InputText = styled.input<InputTextProps>`
