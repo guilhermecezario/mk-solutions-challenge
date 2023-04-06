@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { useTranslation } from 'react-i18next'
@@ -17,12 +17,7 @@ import { registerUser } from '../../../store/reducers/user'
 import api from '../../../services/api';
 
 export default function User() {
-  const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    i18n.changeLanguage('en-US')
-  }, [])
-
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
 

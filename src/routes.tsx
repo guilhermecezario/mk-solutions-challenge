@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   createBrowserRouter,
+  Navigate
 } from 'react-router-dom';
 
 import TemplateRegister from './templates/Register';
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         element: <Confirmation />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <Navigate replace to="/register/user" />
   },
 ]);
 
